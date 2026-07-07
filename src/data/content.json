@@ -6,9 +6,18 @@
   "nav": {
     "logo": "Svatbáci",
     "links": [
-      { "label": "O nás",        "href": "#o-nas" },
-      { "label": "Práce",        "href": "#portfolio" },
-      { "label": "Ceny",         "href": "#pro-koho" }
+      {
+        "label": "O nás",
+        "href": "#o-nas"
+      },
+      {
+        "label": "Práce",
+        "href": "#portfolio"
+      },
+      {
+        "label": "Ceny",
+        "href": "#pro-koho"
+      }
     ],
     "cta": "Napište nám"
   },
@@ -23,10 +32,22 @@
     "video_poster": "/images/hero.jpg"
   },
   "stats": [
-    { "num": "83",  "label": "svateb zachycených" },
-    { "num": "4",   "label": "roky v terénu" },
-    { "num": "0",   "label": "ztracených prstenů" },
-    { "num": "∞",   "label": "litrů kávy" }
+    {
+      "num": "83",
+      "label": "svateb zachycených"
+    },
+    {
+      "num": "4",
+      "label": "roky v terénu"
+    },
+    {
+      "num": "0",
+      "label": "ztracených prstenů"
+    },
+    {
+      "num": "∞",
+      "label": "litrů kávy"
+    }
   ],
   "teaser": {
     "script": "Váš velký den",
@@ -115,7 +136,23 @@
       "/images/g15.jpg",
       "/images/g16.jpg",
       "/images/g17.jpg",
-      "/images/g18.jpg"
+      "/images/g18.jpg",
+      "/images/g19.jpg",
+      "/images/g20.jpg",
+      "/images/g21.jpg",
+      "/images/g22.jpg",
+      "/images/g23.jpg",
+      "/images/g24.jpg",
+      "/images/g25.jpg",
+      "/images/g26.jpg",
+      "/images/g27.jpg",
+      "/images/g28.jpg",
+      "/images/g29.jpg",
+      "/images/g30.jpg",
+      "/images/g31.jpg",
+      "/images/g32.jpg",
+      "/images/g33.jpg",
+      "/images/g34.jpg"
     ]
   },
   "process": {
@@ -149,10 +186,18 @@
     "headline": "Tohle si\nposlechni.",
     "sub": "Nejvíc raw\nrecenze.",
     "videos": [
-      { "youtube_id": "suSbTgIb_rM" },
-      { "youtube_id": "61mLVIWQVh4" },
-      { "youtube_id": "fSg1B9I-SvM" },
-      { "youtube_id": "plPsJP9e-Ys" }
+      {
+        "youtube_id": "suSbTgIb_rM"
+      },
+      {
+        "youtube_id": "61mLVIWQVh4"
+      },
+      {
+        "youtube_id": "fSg1B9I-SvM"
+      },
+      {
+        "youtube_id": "plPsJP9e-Ys"
+      }
     ]
   },
   "for_who": {
@@ -183,19 +228,15 @@
   "contact": {
     "eyebrow": "Pojďme se pobavit",
     "headline": "Váš\ntermín?",
-    "sub": "Napište nám. Ozýváme se do 48 hodin.",
-    "form_action": "https://formspree.io/f/VASE_ID",
-    "fields": [
-      { "name": "jmena",   "label": "Jméno (obou)",     "type": "text",     "placeholder": "Markéta & Tomáš" },
-      { "name": "email",   "label": "Email",             "type": "email",    "placeholder": "vas@email.cz" },
-      { "name": "datum",   "label": "Datum svatby",      "type": "text",     "placeholder": "15. června 2025" },
-      { "name": "misto",   "label": "Místo",             "type": "text",     "placeholder": "Kde se bere" },
-      { "name": "zprava",  "label": "Co od nás čekáte?", "type": "textarea", "placeholder": "Foto, video, obojí? Co je pro vás důležité?" }
-    ],
-    "submit": "Napište nám"
+    "sub": "Žádné formuláře. Napište nám na WhatsApp nebo zavolejte — ozýváme se do 48 hodin.",
+    "whatsapp_number": "420XXXXXXXXX",
+    "whatsapp_text": "Ahoj Svatbáci! Bereme se a chtěli bychom foto/video. Termín: ___, místo: ___.",
+    "whatsapp_cta": "Napište na WhatsApp",
+    "phone_display": "+420 XXX XXX XXX",
+    "call_cta": "Zavolejte nám"
   },
   "footer": {
-    "copy": "© 2025 Svatbáci — Filip Němec + Petr Cibulka",
+    "copy": "© 2026 Svatbáci — Filip Němec + Petr Cibulka",
     "email": "ahoj@svatbaci.com",
     "instagram": "https://instagram.com/svatbaci",
     "phone": "+420 XXX XXX XXX"
