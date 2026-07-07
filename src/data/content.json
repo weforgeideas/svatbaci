@@ -65,7 +65,7 @@
   "about": {
     "eyebrow": "Kdo za tím stojí",
     "headline": "Filip\n+ Petr",
-    "intro": "Jsme kámoši, který milujou srandu. Jsme sehraný tak, že stačí pohled a víme o co jde. Žádný chaos, žádný cizí lidi co se mezi sebou neznají — jen dva parťáci a výsledky, co mluví za všechno.",
+    "intro": "Jsme kámoši, který milujou srandu. Jsme sehraný tak, že stačí pohled a víme o co jde. Chtěli jsme vytvořit projekt, co to bude dělat tak trochu jinak — kombinaci krásnýho vizuálu a autenticity. Nesnášíme nudu, ale taky chceme tvořit krásný věci, a proto jsme tyhle dva světy propojili.",
     "people": [
       {
         "name": "Filip Němec",
@@ -229,16 +229,17 @@
     "eyebrow": "Pojďme se pobavit",
     "headline": "Váš\ntermín?",
     "sub": "Žádné formuláře. Napište nám na WhatsApp nebo zavolejte — ozýváme se do 48 hodin.",
-    "whatsapp_number": "420XXXXXXXXX",
+    "whatsapp_number": "420731119485",
     "whatsapp_text": "Ahoj Svatbáci! Bereme se a chtěli bychom foto/video. Termín: ___, místo: ___.",
     "whatsapp_cta": "Napište na WhatsApp",
-    "phone_display": "+420 XXX XXX XXX",
+    "whatsapp_note": "Nejrychlejší cesta je nám napsat/zavolat rovnou na WhatsApp",
+    "phone_display": "+420 731 119 485",
     "call_cta": "Zavolejte nám"
   },
   "footer": {
     "copy": "© 2026 Svatbáci — Filip Němec + Petr Cibulka",
     "email": "ahoj@svatbaci.com",
     "instagram": "https://instagram.com/svatbaci",
-    "phone": "+420 XXX XXX XXX"
+    "phone": "+420 731 119 485"
   }
 }
