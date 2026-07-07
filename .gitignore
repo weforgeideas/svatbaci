@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# system
+.DS_Store
+
+# source photos (not needed on web, keep repo small)
+fotos/
+
+# env
+.env
+.env.*

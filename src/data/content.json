@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "Svatbáci — Filip Němec + Petr Cibulka",
+    "description": "Svatební foto & film. Říkáme příběhy, ne záběry. Praha a celá ČR."
+  },
+  "nav": {
+    "logo": "Svatbáci",
+    "links": [
+      { "label": "O nás",        "href": "#o-nas" },
+      { "label": "Práce",        "href": "#portfolio" },
+      { "label": "Ceny",         "href": "#pro-koho" }
+    ],
+    "cta": "Napište nám"
+  },
+  "hero": {
+    "eyebrow": "Filip Němec  ·  Petr Cibulka",
+    "headline_line1": "Jsme",
+    "headline_line2": "Svatbáci.",
+    "sub": "Extroverti co každého uvolní a udělají\nz něj hvězdu Hollywood star.\n\nVyprávíme příběhy,\nkteré nikdy nezapomenete.",
+    "cta": "Podívejte se na naši práci",
+    "cta_href": "#portfolio",
+    "video_url": "",
+    "video_poster": "/images/hero.jpg"
+  },
+  "stats": [
+    { "num": "83",  "label": "svateb zachycených" },
+    { "num": "4",   "label": "roky v terénu" },
+    { "num": "0",   "label": "ztracených prstenů" },
+    { "num": "∞",   "label": "litrů kávy" }
+  ],
+  "teaser": {
+    "script": "Váš velký den",
+    "headline_a": "Kreativita a nádherný vizuál.",
+    "headline_bold1": "",
+    "headline_b": "Roky zkušeností a portfolio",
+    "headline_bold2": "příběhů,",
+    "headline_c": "které mluví za vše.",
+    "para1": "Extroverti co každého uvolní a udělají z něj hvězdu Hollywood star.",
+    "para2": "Vyprávíme příběhy, které nikdy nezapomenete.",
+    "portrait": "/images/teaser-portrait.jpg",
+    "small_photo": "/images/teaser-small.jpg",
+    "signature": "Filip & Petr"
+  },
+  "about": {
+    "eyebrow": "Kdo za tím stojí",
+    "headline": "Filip\n+ Petr",
+    "intro": "Jsme kámoši, který milujou srandu. Jsme sehraný tak, že stačí pohled a víme o co jde. Žádný chaos, žádný cizí lidi co se mezi sebou neznají — jen dva parťáci a výsledky, co mluví za všechno.",
+    "people": [
+      {
+        "name": "Filip Němec",
+        "role": "Fotograf",
+        "photo": "/images/filip.jpg",
+        "bio": "Rozesměju a uvolním každýho. Vy se bavíte a já se starám o to, abyste měli vzpomínku a na fotkách vypadali jako z časopisu. Hledám místa, úhly a kompozice, ve kterých budete vypadat neskutečně.",
+        "fun_fact": "Promění odpůrce focení v jeho milovníky."
+      },
+      {
+        "name": "Petr Cibulka",
+        "role": "Kameraman",
+        "photo": "/images/petr.jpg",
+        "bio": "Udělám ze svatebního dne film, co si pustíte 10x dokola. Nejsem tichá kamera v rohu. Jsme tam, kde se lidi smějou — a když se nic neděje, vytváříme situace, kde se zabaví.",
+        "fun_fact": "Slyší emoce dřív, než je slyšíte sami."
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Co děláme",
+    "headline": "Foto.\nVideo.\nPříběh.",
+    "items": [
+      {
+        "title": "Svatební fotografie",
+        "sub": "Reportáž, portrétní session, detaily",
+        "body": "Fotografie, která nevypadá jako fotografie. Vypadá jako váš den — jak se opravdu cítil, ne jak jste si mysleli, že byste měli vypadat.",
+        "cover": "/images/foto-cover.jpg"
+      },
+      {
+        "title": "Svatební film",
+        "sub": "Highlight film, ceremony cut, plná délka",
+        "body": "Ne záznam. Film. S obloukem, s hudbou co sedí, s momentem co vás přiměje říct ‚tohle jsem nečekal/a'.",
+        "cover": "/images/video-cover.jpg"
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Naše práce",
+    "headline": "Slova\nneřeknou\ntolik, jako toto.",
+    "videos": [
+      {
+        "title": "Simona a Jakub",
+        "youtube_id": "iNicVcg2_uc"
+      },
+      {
+        "title": "Marie a David",
+        "youtube_id": "ijoyIXPn7bk"
+      },
+      {
+        "title": "Marie a Petr",
+        "youtube_id": "5JbJBMQPfKU"
+      }
+    ],
+    "photos": [
+      "/images/g1.jpg",
+      "/images/g2.jpg",
+      "/images/g3.jpg",
+      "/images/g4.jpg",
+      "/images/g5.jpg",
+      "/images/g6.jpg",
+      "/images/g7.jpg",
+      "/images/g8.jpg",
+      "/images/g9.jpg",
+      "/images/g10.jpg",
+      "/images/g11.jpg",
+      "/images/g12.jpg",
+      "/images/g13.jpg",
+      "/images/g14.jpg",
+      "/images/g15.jpg",
+      "/images/g16.jpg",
+      "/images/g17.jpg",
+      "/images/g18.jpg"
+    ]
+  },
+  "process": {
+    "eyebrow": "Jak to funguje",
+    "headline": "Jednodušší\nnež si myslíte.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Napíšete nám",
+        "body": "Datum, místo, jméno partnera/ky. Žádný formulář s 40 políčky. Prostě napište."
+      },
+      {
+        "num": "02",
+        "title": "Poznáme se",
+        "body": "Coffee call, pivo nebo Zoom. Zjistíme jestli si sedneme. (Spoiler: sedíme.)"
+      },
+      {
+        "num": "03",
+        "title": "Váš den",
+        "body": "Jsme tam. Tiše, vtipně, profesionálně. Zachytíme co ostatní přehlédnou."
+      },
+      {
+        "num": "04",
+        "title": "Výsledky",
+        "body": "Fotky a film, které budete chtít ukázat každému. Doslova každému. I sousedce co vás nemá ráda."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Co říkají naše srdíčka?",
+    "headline": "Tohle si\nposlechni.",
+    "sub": "Nejvíc raw\nrecenze.",
+    "videos": [
+      { "youtube_id": "suSbTgIb_rM" },
+      { "youtube_id": "61mLVIWQVh4" },
+      { "youtube_id": "fSg1B9I-SvM" },
+      { "youtube_id": "plPsJP9e-Ys" }
+    ]
+  },
+  "for_who": {
+    "eyebrow": "Pro koho jsme",
+    "headline": "Nejsme\npro každého.",
+    "sub": "A to je v pořádku.",
+    "yes": "Jsme pro páry, kteří si nás vyberou, protože se jim líbí naše práce a energie. Jedině díky důvěře můžeme být kreativní a bezstarostně pro vás vytvořit krásnou vzpomínku.",
+    "no": "Nejsme pro páry, které porovnávají 10 kreativců podle ceny. Tím co děláme opravdu žijeme a chceme to dělat na maximum. Nebudete jenom ‚další' svatba.",
+    "price_tiers": [
+      {
+        "label": "Jen foto nebo video",
+        "from": "od",
+        "price": "28 000 Kč",
+        "note": "Fotografická reportáž nebo svatební film. Jedno — ale to nejlepší."
+      },
+      {
+        "label": "Foto + video dohromady",
+        "from": "od",
+        "price": "55 000 Kč",
+        "note": "Kompletní záchyt vašeho dne. Jeden tým, žádná koordinace.",
+        "highlight": true
+      }
+    ],
+    "price_note": "Přesná cena záleží na rozsahu, termínu a délce dne.",
+    "cta": "Zjistit volný termín",
+    "cta_href": "#kontakt"
+  },
+  "contact": {
+    "eyebrow": "Pojďme se pobavit",
+    "headline": "Váš\ntermín?",
+    "sub": "Napište nám. Ozýváme se do 48 hodin.",
+    "form_action": "https://formspree.io/f/VASE_ID",
+    "fields": [
+      { "name": "jmena",   "label": "Jméno (obou)",     "type": "text",     "placeholder": "Markéta & Tomáš" },
+      { "name": "email",   "label": "Email",             "type": "email",    "placeholder": "vas@email.cz" },
+      { "name": "datum",   "label": "Datum svatby",      "type": "text",     "placeholder": "15. června 2025" },
+      { "name": "misto",   "label": "Místo",             "type": "text",     "placeholder": "Kde se bere" },
+      { "name": "zprava",  "label": "Co od nás čekáte?", "type": "textarea", "placeholder": "Foto, video, obojí? Co je pro vás důležité?" }
+    ],
+    "submit": "Napište nám"
+  },
+  "footer": {
+    "copy": "© 2025 Svatbáci — Filip Němec + Petr Cibulka",
+    "email": "ahoj@svatbaci.com",
+    "instagram": "https://instagram.com/svatbaci",
+    "phone": "+420 XXX XXX XXX"
+  }
+}

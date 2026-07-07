@@ -1,0 +1,530 @@
+---
+import Layout from '../layouts/Layout.astro';
+import data from '../data/content.json';
+const d = data;
+// Prefix asset paths with the base URL so images work on GitHub Pages
+// (project page) AND on a custom domain later — no code change needed.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (p) => (p ? base + p : p);
+---
+
+<Layout title={d.meta.title} description={d.meta.description}>
+
+<!-- ═══════════════════════════════════════ NAV ═══ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-3 md:px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Rounded-bottom card nav — DreamDay style -->
+    <div id="nav-card"
+         class="bg-cream/95 backdrop-blur-md rounded-b-[28px] px-5 md:px-10 py-4
+                shadow-[0_4px_32px_rgba(26,23,20,0.10)] transition-all duration-300
+                flex items-center justify-between gap-4">
+
+      <!-- Left links (desktop) -->
+      <nav class="hidden md:flex items-center gap-7 flex-1">
+        <a href="#o-nas"    class="font-sans text-[11px] text-dark/55 hover:text-dark tracking-[0.14em] uppercase transition-colors cursor-pointer">{d.nav.links[0].label}</a>
+        <a href="#portfolio" class="font-sans text-[11px] text-dark/55 hover:text-dark tracking-[0.14em] uppercase transition-colors cursor-pointer">{d.nav.links[1].label}</a>
+      </nav>
+
+      <!-- Center logo -->
+      <a href="#" class="font-serif text-dark text-xl md:text-2xl tracking-widest italic hover:opacity-60 transition-opacity cursor-pointer select-none mx-auto md:mx-8 shrink-0">
+        {d.nav.logo}
+      </a>
+
+      <!-- Right links + CTA (desktop) -->
+      <div class="hidden md:flex items-center gap-7 flex-1 justify-end">
+        <a href="#kontakt"  class="font-sans text-[11px] text-dark/55 hover:text-dark tracking-[0.14em] uppercase transition-colors cursor-pointer">{d.nav.links[2].label}</a>
+        <a href="#kontakt"
+           class="font-sans text-[11px] px-5 py-2.5 bg-gold text-dark font-medium hover:bg-gold-h transition-colors cursor-pointer tracking-[0.12em] uppercase whitespace-nowrap">
+          {d.nav.cta}
+        </a>
+      </div>
+
+      <!-- Mobile CTA only -->
+      <a href="#kontakt"
+         class="md:hidden font-sans text-[11px] px-4 py-2 bg-gold text-dark font-medium hover:bg-gold-h transition-colors cursor-pointer tracking-[0.1em] uppercase shrink-0">
+        {d.nav.cta}
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════ HERO ══ -->
+<section class="relative min-h-screen bg-dark flex items-end pb-16 md:pb-24 overflow-hidden">
+  <!-- Background: video or fallback gradient -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 60% 40%, #2B2018 0%, #1A1714 55%, #0E0B08 100%);"></div>
+
+    <!-- ▸ Hero video — drop hero.mp4 into /public/videos/ to activate -->
+    {d.hero.video_url ? (
+      <video
+        autoplay muted loop playsinline
+        poster={asset(d.hero.video_poster)}
+        class="absolute inset-0 w-full h-full object-cover opacity-60"
+      >
+        <source src={asset(d.hero.video_url)} type="video/mp4" />
+      </video>
+    ) : (
+      <img src={asset(d.hero.video_poster)} alt=""
+           class="absolute inset-0 w-full h-full object-cover opacity-50"
+           onerror="this.style.display='none'" />
+    )}
+
+    <!-- Dark overlay — bottom heavier so text is readable -->
+    <div class="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/40 to-dark/20"></div>
+    <!-- Grain texture -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.035] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+      <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain)"/>
+    </svg>
+  </div>
+
+  <!-- Floating vertical label top-right -->
+  <div class="absolute top-1/2 right-8 md:right-12 -translate-y-1/2 z-10 hidden md:flex flex-col items-center gap-4">
+    <p class="font-sans text-[9px] text-cream/25 tracking-[0.4em] uppercase"
+       style="writing-mode: vertical-rl; letter-spacing: 0.4em;">FOTO · VIDEO · PŘÍBĚH</p>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full grid md:grid-cols-2 gap-8 items-end">
+    <div>
+      <p class="font-sans text-xs text-gold tracking-[0.35em] uppercase mb-6 reveal">
+        {d.hero.eyebrow}
+      </p>
+      <h1 class="font-serif text-cream leading-[0.88] mb-8 reveal reveal-d1">
+        <span class="block italic font-light" style="font-size: clamp(2.8rem, 7vw, 6rem);">{d.hero.headline_line1}</span>
+        <span class="block font-semibold" style="font-size: clamp(5rem, 13vw, 12rem); letter-spacing: -0.02em;">{d.hero.headline_line2}</span>
+      </h1>
+    </div>
+    <div class="flex flex-col justify-end pb-2 gap-8">
+      <p class="font-sans text-cream/50 text-base md:text-lg leading-relaxed max-w-xs reveal reveal-d2"
+         style="white-space: pre-line;">{d.hero.sub}</p>
+      <a href={d.hero.cta_href}
+         class="inline-flex items-center gap-3 font-sans text-xs text-cream/40 hover:text-gold transition-colors cursor-pointer tracking-[0.2em] uppercase group reveal reveal-d3 self-start">
+        {d.hero.cta}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" class="group-hover:translate-y-1 transition-transform duration-300">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll pulse -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 md:hidden">
+    <div class="w-px h-10 bg-cream/15 relative overflow-hidden mx-auto">
+      <div id="scroll-pulse" class="w-px h-5 bg-gold/60 absolute top-0"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ STATS BAR ════════ -->
+<section class="bg-cream2 border-b border-cream3">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-cream3">
+      {d.stats.map((s, i) => (
+        <div class={`text-center reveal reveal-d${i+1} md:px-8`}>
+          <p class="font-serif text-dark mb-1" style="font-size: clamp(2.2rem, 5vw, 3.5rem);">{s.num}</p>
+          <p class="font-sans text-muted text-xs tracking-[0.15em] uppercase">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ABOUT ════════════ -->
+<section id="o-nas" class="bg-cream2 px-6 md:px-10 py-24 md:py-36 relative overflow-hidden">
+  <!-- Botanical bottom-left -->
+  <div class="absolute bottom-10 left-6 md:left-12 opacity-10 pointer-events-none rotate-180">
+    <svg width="160" height="100" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 100 C40 70, 90 80, 140 40 C160 28, 170 18, 175 10" stroke="#4A5940" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="45" cy="58" rx="10" ry="17" fill="#4A5940" opacity="0.5" transform="rotate(-35 45 58)"/>
+      <ellipse cx="120" cy="36" rx="9" ry="16" fill="#4A5940" opacity="0.45" transform="rotate(20 120 36)"/>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 md:mb-20">
+      <p class="font-sans text-xs text-sage tracking-[0.25em] uppercase mb-4 reveal">{d.about.eyebrow}</p>
+      <h2 class="font-serif text-dark leading-[0.88] reveal reveal-d1"
+          style="font-size: clamp(4rem, 10vw, 9rem); white-space: pre-line;">
+        {d.about.headline}
+      </h2>
+    </div>
+
+    <!-- Intro + People — editorial split -->
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+      <!-- Intro text col -->
+      <div class="md:col-span-4 md:pt-16 reveal">
+        <p class="font-sans text-muted leading-relaxed text-lg mb-8">{d.about.intro}</p>
+
+      </div>
+
+      <!-- Photos col -->
+      <div class="md:col-span-8 grid grid-cols-2 gap-5 reveal reveal-d1">
+        {d.about.people.map((p, i) => (
+          <div class={`group ${i === 1 ? 'mt-10 md:mt-16' : ''}`}>
+            <!-- Photo -->
+            <div class="relative overflow-hidden mb-5 bg-cream3 cursor-pointer"
+                 style="aspect-ratio: 3/4;">
+              <img src={asset(p.photo)} alt={p.name}
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                   onerror="this.style.display='none'" />
+              <!-- Fun fact on hover -->
+              <div class="absolute inset-0 bg-gradient-to-t from-sage/90 via-sage/30 to-transparent
+                          opacity-0 group-hover:opacity-100 transition-all duration-500
+                          flex items-end p-5">
+                <p class="font-sans text-cream text-sm italic leading-relaxed">{p.fun_fact}</p>
+              </div>
+            </div>
+            <p class="font-sans text-xs text-sage tracking-[0.2em] uppercase mb-1">{p.role}</p>
+            <h3 class="font-serif text-dark text-2xl mb-2">{p.name}</h3>
+            <p class="font-sans text-muted text-sm leading-relaxed">{p.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ PORTFOLIO ═══════════ -->
+<section id="portfolio" class="bg-cream px-6 md:px-10 pt-24 md:pt-36 pb-0 relative overflow-hidden">
+  <!-- Top botanical -->
+  <div class="absolute top-12 right-10 opacity-12 pointer-events-none">
+    <svg width="200" height="80" viewBox="0 0 200 80" fill="none">
+      <path d="M5 70 C50 40, 110 55, 160 20 C175 12, 190 6, 196 8" stroke="#4A5940" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="55" cy="50" rx="10" ry="17" fill="#4A5940" opacity="0.55" transform="rotate(-40 55 50)"/>
+      <ellipse cx="120" cy="33" rx="9" ry="15" fill="#4A5940" opacity="0.45" transform="rotate(25 120 33)"/>
+      <ellipse cx="170" cy="16" rx="8" ry="13" fill="#4A5940" opacity="0.4" transform="rotate(35 170 16)"/>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <p class="font-sans text-xs text-sage tracking-[0.25em] uppercase mb-4 reveal">{d.portfolio.eyebrow}</p>
+        <h2 class="font-serif text-dark leading-[0.88] reveal reveal-d1"
+            style="font-size: clamp(2.8rem, 7vw, 6rem); white-space: pre-line;">
+          {d.portfolio.headline}
+        </h2>
+      </div>
+      <a href={d.footer.instagram} target="_blank" rel="noopener"
+         class="font-sans text-xs text-muted/60 hover:text-sage tracking-[0.2em] uppercase transition-colors cursor-pointer self-end pb-1 reveal reveal-d2">
+        Více na Instagramu →
+      </a>
+    </div>
+
+    <!-- Embedded Videos -->
+    {d.portfolio.videos.length > 0 && (
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        {d.portfolio.videos.map((v, i) => (
+          <div class={`reveal reveal-d${i+1}`}>
+            <div class="relative overflow-hidden bg-dark" style="aspect-ratio:16/9;">
+              <iframe
+                src={`https://www.youtube.com/embed/${v.youtube_id}?rel=0&modestbranding=1`}
+                class="absolute inset-0 w-full h-full" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen />
+            </div>
+            <p class="font-serif text-dark text-base mt-3">{v.title}</p>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Editorial masonry photo grid — flows naturally with mixed orientations -->
+    <div class="columns-2 md:columns-3 gap-3 md:gap-4 pb-0 [column-fill:balance]">
+      {d.portfolio.photos.map((src, i) => (
+        <div class={`mb-3 md:mb-4 overflow-hidden group cursor-pointer bg-cream3 break-inside-avoid reveal reveal-d${(i%3)+1}`}>
+          <img src={asset(src)} alt="" loading="lazy"
+               class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+               onerror="this.parentElement.style.background='#E2D5C3'" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TESTIMONIALS ══════════ -->
+<section class="bg-cream2 py-20 md:py-32">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-12 gap-12 md:gap-8 items-center">
+
+      <!-- LEFT: text -->
+      <div class="md:col-span-4 reveal">
+        <p class="font-sans text-xs text-sage tracking-[0.25em] uppercase mb-6">{d.testimonials.eyebrow}</p>
+        <h2 class="font-serif text-dark leading-[0.88] mb-8"
+            style="font-size: clamp(2.4rem, 4vw, 4rem); white-space: pre-line;">
+          {d.testimonials.headline}
+        </h2>
+        <div class="w-10 h-px bg-gold mb-8"></div>
+        <p class="font-serif text-dark/60 leading-snug"
+           style="font-size: clamp(1.5rem, 2.5vw, 2rem); white-space: pre-line;">
+          {d.testimonials.sub}
+        </p>
+      </div>
+
+      <!-- RIGHT: 2 + peek carousel, extends to right edge -->
+      <div class="md:col-span-8 reveal reveal-d2">
+        <div class="overflow-hidden -mr-6 md:-mr-10">
+          <!-- Track -->
+          <div id="review-track" class="flex pl-3 md:pl-0" style="gap:12px; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);">
+            {d.testimonials.videos.map((v, i) => (
+              <div class="flex-shrink-0 review-item" style="width:44%; transition: opacity 0.4s, transform 0.4s;">
+                <div class="relative overflow-hidden bg-dark shadow-[0_8px_32px_rgba(26,23,20,0.15)]" style="aspect-ratio:9/16;">
+                  <iframe
+                    data-src={`https://www.youtube.com/embed/${v.youtube_id}?rel=0&modestbranding=1`}
+                    src={i < 2 ? `https://www.youtube.com/embed/${v.youtube_id}?rel=0&modestbranding=1` : ''}
+                    class="absolute inset-0 w-full h-full"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div id="review-dots" class="flex items-center gap-3 mt-5 pl-3 md:pl-0">
+          {[0, 1, 2].map(i => (
+            <button
+              type="button"
+              data-dot={i}
+              style={i === 0
+                ? 'width:1.5rem;height:0.5rem;border-radius:9999px;background:#1A1714;cursor:pointer;border:none;padding:0;transition:all .3s'
+                : 'width:0.5rem;height:0.5rem;border-radius:9999px;background:rgba(26,23,20,0.25);cursor:pointer;border:none;padding:0;transition:all .3s'}
+              aria-label={`Recenze ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const track = document.getElementById('review-track');
+    const dots  = Array.from(document.querySelectorAll('[data-dot]'));
+    if (!track) return;
+
+    const items  = Array.from(track.querySelectorAll('.review-item'));
+    const GAP    = 12;
+    const MAX    = items.length - 2; // 0–2 for 4 videos
+    let step     = 0;
+
+    function render() {
+      // Move track
+      const w = items[0].getBoundingClientRect().width || items[0].offsetWidth;
+      track.style.transform = `translateX(${-(step * (w + GAP))}px)`;
+
+      // Opacity + scale per item
+      items.forEach((el, i) => {
+        const peek   = i === step + 2;
+        const behind = i < step;
+        el.style.opacity       = behind ? '0' : peek ? '0.38' : '1';
+        el.style.transform     = peek ? 'scale(0.96)' : 'scale(1)';
+        el.style.pointerEvents = behind ? 'none' : 'auto';
+
+        // Lazy-load: load iframe when it becomes visible or is the peek
+        const iframe = el.querySelector('iframe');
+        if (iframe && !iframe.src && iframe.dataset.src && i <= step + 2) {
+          iframe.src = iframe.dataset.src;
+        }
+      });
+
+      // Dots styling
+      dots.forEach((d, i) => {
+        const active = i === step;
+        d.style.width      = active ? '1.5rem' : '0.5rem';
+        d.style.background = active ? '#1A1714' : 'rgba(26,23,20,0.25)';
+      });
+    }
+
+    dots.forEach((d, i) => {
+      d.addEventListener('click', () => {
+        step = Math.max(0, Math.min(i, MAX));
+        render();
+      });
+    });
+
+    render();
+  })();
+</script>
+
+<!-- ══════════════════════ FOR WHO / CENY ════════ -->
+<section id="pro-koho" class="bg-cream px-6 md:px-10 py-24 md:py-36 relative overflow-hidden">
+  <!-- Botanical center -->
+  <div class="absolute bottom-0 right-0 opacity-[0.08] pointer-events-none">
+    <svg width="300" height="200" viewBox="0 0 300 200" fill="none">
+      <path d="M290 190 C240 140, 150 160, 80 90 C40 50, 20 20, 10 8" stroke="#4A5940" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="200" cy="148" rx="14" ry="24" fill="#4A5940" transform="rotate(-40 200 148)"/>
+      <ellipse cx="130" cy="110" rx="13" ry="22" fill="#4A5940" transform="rotate(20 130 110)"/>
+      <ellipse cx="65" cy="75" rx="12" ry="20" fill="#4A5940" transform="rotate(-30 65 75)"/>
+    </svg>
+  </div>
+
+  <div class="max-w-5xl mx-auto relative">
+    <p class="font-sans text-xs text-sage tracking-[0.25em] uppercase mb-4 reveal">{d.for_who.eyebrow}</p>
+    <h2 class="font-serif text-dark leading-[0.88] mb-2 reveal reveal-d1"
+        style="font-size: clamp(3.5rem, 9vw, 8rem); white-space: pre-line;">
+      {d.for_who.headline}
+    </h2>
+    <p class="font-serif text-muted italic mb-14 reveal reveal-d2"
+       style="font-size: clamp(1.4rem, 3vw, 2.2rem);">{d.for_who.sub}</p>
+
+    <!-- Yes / No split -->
+    <div class="grid md:grid-cols-2 gap-4 mb-12">
+      <div class="bg-cream2 border border-cream3 p-8 md:p-10 reveal reveal-d2">
+        <div class="w-6 h-px bg-sage mb-6"></div>
+        <p class="font-sans text-muted leading-relaxed">{d.for_who.yes}</p>
+      </div>
+      <div class="bg-cream2 border border-cream3 p-8 md:p-10 reveal reveal-d3">
+        <div class="w-6 h-px bg-cream3 mb-6"></div>
+        <p class="font-sans text-muted/50 leading-relaxed">{d.for_who.no}</p>
+      </div>
+    </div>
+
+    <!-- Price block — two tiers -->
+    <div class="reveal reveal-d4">
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        {d.for_who.price_tiers.map((tier) => (
+          <div class={`p-10 md:p-12 flex flex-col ${tier.highlight ? 'bg-dark text-cream' : 'bg-cream2 border border-cream3 text-dark'}`}>
+            <p class={`font-sans text-xs tracking-[0.25em] uppercase mb-6 ${tier.highlight ? 'text-gold' : 'text-muted/50'}`}>
+              {tier.label}
+            </p>
+            <div class="mb-4">
+              <span class={`font-sans text-sm ${tier.highlight ? 'text-cream/50' : 'text-muted/50'}`}>{tier.from}&nbsp;</span>
+              <span class="font-serif" style="font-size: clamp(2.4rem, 5vw, 4rem);">{tier.price}</span>
+            </div>
+            <p class={`font-sans text-sm leading-relaxed mt-auto pt-6 border-t ${tier.highlight ? 'text-cream/40 border-cream/10' : 'text-muted/60 border-cream3'}`}>
+              {tier.note}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-2">
+        <p class="font-sans text-muted/50 text-sm">{d.for_who.price_note}</p>
+        <a href={d.for_who.cta_href}
+           class="inline-block font-sans text-xs px-10 py-4 bg-sage text-cream font-medium hover:bg-dark transition-colors cursor-pointer tracking-[0.15em] uppercase shrink-0">
+          {d.for_who.cta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════ CONTACT ════════════ -->
+<section id="kontakt" class="bg-dark2 px-6 md:px-10 py-24 md:py-36 relative overflow-hidden">
+  <!-- Grain -->
+  <svg class="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+    <filter id="g2"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#g2)"/>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+    <!-- Left: text -->
+    <div>
+      <p class="font-sans text-xs text-gold tracking-[0.25em] uppercase mb-4 reveal">{d.contact.eyebrow}</p>
+      <h2 class="font-serif text-cream leading-[0.88] mb-6 reveal reveal-d1"
+          style="font-size: clamp(3.5rem, 8vw, 7rem); white-space: pre-line;">
+        {d.contact.headline}
+      </h2>
+      <p class="font-sans text-cream/50 text-lg leading-relaxed mb-12 reveal reveal-d2">{d.contact.sub}</p>
+
+      <!-- Contact details -->
+      <div class="space-y-4 reveal reveal-d3">
+        <a href={`mailto:${d.footer.email}`}
+           class="flex items-center gap-3 font-sans text-cream/40 hover:text-gold transition-colors cursor-pointer group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="shrink-0">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span class="text-sm tracking-wide">{d.footer.email}</span>
+        </a>
+        <a href={d.footer.instagram} target="_blank" rel="noopener"
+           class="flex items-center gap-3 font-sans text-cream/40 hover:text-gold transition-colors cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="shrink-0">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          <span class="text-sm tracking-wide">@svatbaci</span>
+        </a>
+      </div>
+
+      <!-- Big script -->
+      <p class="font-script text-gold/20 mt-10 leading-none select-none hidden md:block"
+         style="font-size: clamp(4rem, 8vw, 7rem);">ahoj!</p>
+    </div>
+
+    <!-- Right: form -->
+    <form id="contact-form" action={d.contact.form_action} method="POST" class="space-y-7 reveal reveal-d2">
+      {d.contact.fields.map(f => (
+        <div>
+          <label for={f.name}
+                 class="block font-sans text-[10px] text-cream/35 tracking-[0.2em] uppercase mb-2">
+            {f.label}
+          </label>
+          {f.type === 'textarea' ? (
+            <textarea id={f.name} name={f.name} placeholder={f.placeholder} rows={4}
+                      class="w-full bg-transparent border-b border-cream/10 focus:border-cream/40 outline-none
+                             py-3 font-sans text-cream placeholder:text-cream/20 resize-none transition-colors text-base" />
+          ) : (
+            <input type={f.type} id={f.name} name={f.name} placeholder={f.placeholder}
+                   class="w-full bg-transparent border-b border-cream/10 focus:border-cream/40 outline-none
+                          py-3 font-sans text-cream placeholder:text-cream/20 transition-colors text-base" />
+          )}
+        </div>
+      ))}
+      <button type="submit"
+              class="w-full font-sans text-xs py-4 bg-gold text-dark font-medium
+                     hover:bg-gold-h transition-colors cursor-pointer tracking-[0.15em] uppercase mt-2">
+        {d.contact.submit}
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ════════════ -->
+<footer class="bg-dark border-t border-dark2 px-6 md:px-10 py-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+      <a href="#" class="font-serif text-cream text-2xl tracking-widest hover:opacity-60 transition-opacity cursor-pointer italic">
+        {d.nav.logo}
+      </a>
+      <div class="flex flex-wrap gap-6 md:gap-10">
+        <a href={`mailto:${d.footer.email}`}
+           class="font-sans text-xs text-cream/30 hover:text-cream/60 tracking-wide transition-colors cursor-pointer">{d.footer.email}</a>
+        <a href={d.footer.instagram} target="_blank" rel="noopener"
+           class="font-sans text-xs text-cream/30 hover:text-cream/60 tracking-wide transition-colors cursor-pointer">Instagram</a>
+        <a href={`tel:${d.footer.phone.replace(/\s/g,'')}`}
+           class="font-sans text-xs text-cream/30 hover:text-cream/60 tracking-wide transition-colors cursor-pointer">{d.footer.phone}</a>
+      </div>
+    </div>
+    <div class="border-t border-dark2 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <p class="font-sans text-cream/15 text-xs tracking-wide">{d.footer.copy}</p>
+      <p class="font-sans text-cream/10 text-xs">Praha &amp; celá ČR</p>
+    </div>
+  </div>
+</footer>
+
+</Layout>
+
+<script>
+  // Scroll pulse in hero
+  const pulse = document.getElementById('scroll-pulse');
+  let p = -100, dir = 1;
+  const tick = () => {
+    p += dir * 1.5;
+    if (p >= 100) dir = -1;
+    if (p <= -100) dir = 1;
+    if (pulse) pulse.style.transform = `translateY(${p}%)`;
+    requestAnimationFrame(tick);
+  };
+  tick();
+</script>
+
+<style>
+  input, textarea { outline: none; }
+  img { transition: opacity 0.4s ease; }
+  ::selection { background: #C8900A; color: #1A1714; }
+</style>
